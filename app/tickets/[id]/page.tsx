@@ -7,7 +7,13 @@ import { apiClient } from "@/lib/api"
 import { toast } from "sonner"
 import { notFound } from "next/navigation"
 
-export default function TicketDetailsPage({ params }: { params: { id: string } }) {
+type TicketDetailsPageProps = {
+  params: {
+    id: string
+  }
+}
+
+export default function TicketDetailsPage({ params }: TicketDetailsPageProps) {
   const [ticket, setTicket] = useState<Ticket | null>(null)
   const [comments, setComments] = useState<TicketComment[]>([])
   const [loading, setLoading] = useState(true)
